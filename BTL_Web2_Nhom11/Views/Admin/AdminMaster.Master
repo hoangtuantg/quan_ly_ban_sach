@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.Master.cs" Inherits="BTL_Web2_Nhom11.Views.Admin.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Quản lý bán sách</title>
+    <style>
+        #left{
+            color: white;
+            height: 695px;
+            background-color:teal;
+        }
+
+        label{
+            color:white;
+        }
+
+        td{
+            background-color:lightgray;
+            color:black;
+        }
+        th{
+            background-color:teal;
+            color:#EAF6F6;
+        }
+
+    </style>
+    <!-- Thêm Bootstrap qua CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2" id="left">
+                <div style="height:180px">
+                    <br />
+                    <img src="https://ntthnue.edu.vn/uploads/Images/2017/09/013.jpg" alt="Alternate Text"  width="100%" style="border-radius:20px"/>
+                </div>
+                <div class="p-2">
+                    
+                    <div class="mb-5">
+                        <i class="fa-solid fa-user"></i>
+                        <% if (Session["UserEmail"] != null) { %>
+                            <b>Xin chào, <%= Session["UserEmail"].ToString() %></b>
+                        <% } else { %>
+                            <b>Chào mừng bạn!</b>
+                        <% } %>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="fa-solid fa-book-open"></i>
+                        <a href="Books.aspx"><label>Sách</label></a>
+                    </div>
+
+                    <div class="mb-3">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <a href="Author.aspx"><label>Tác giả</label></a>
+                    </div>
+
+                    <div class="mb-3">      
+                        <i class="fa-solid fa-layer-group"></i>
+                        <a href="BookType.aspx"><label>Thế Loại</label></a>
+                    </div>
+
+                    <div class="mb-3">      
+                        <i class="fa-solid fa-users"></i>
+                        <a href="Seller.aspx"><label>Người bán</label></a>
+                    </div>
+                    <div class="mb-3">
+                        <i class="fa-solid fa-users-gear" height="20" width="20"></i>
+                        <a href="Users.aspx"><label>Tài khoản</label></a>
+                    </div>
+
+                    <div style="height:50px"></div>
+
+                    <div class="mb-3">
+                        <i class="fa-solid fa-right-from-bracket" height="20" width="20"></i>
+                        <a href="../Login.aspx"><label>Đăng xuất</label></a>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-10">
+                <form id="form1" runat="server">
+                    <div>
+                         <asp:ContentPlaceHolder ID="MyContent" runat="server">
+                         </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
